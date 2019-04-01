@@ -1,0 +1,3 @@
+<step title="Startup Request" date="2018-10-18T17:34:08.890" instance="dbf090" url="/api/vfs/site/wwwroot/bin/extensions.json" method="GET" type="request" pid="11612,2,7" SCM_SKIP_SSL_VALIDATION="0" ScmType="None" >
+  <step title="Cleanup Xml Logs" date="2018-10-18T17:34:09.406" /><!-- duration: 328ms -->
+</step><!-- duration: 1815ms -->

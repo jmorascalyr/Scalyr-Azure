@@ -1,0 +1,6 @@
+<step title="Incoming Request" date="2019-04-01T19:52:06.171" instance="f763ae" url="/deploy?scmType=GitHub&amp;isAsync=true" method="POST" type="request" pid="5856,2,8" Connection="Keep-Alive" Content-Length="92" Authorization="Bas..." Expect="100-continue" Host="testfnscalyr.scm.azurewebsites.net" User-Agent="Azure-WebSites-Controller/81.0.7.40" x-ms-request-id="db4ec3d1-2b7d-4479-9937-d56424d9f826" X-WAWS-Unencoded-URL="/deploy?scmType=GitHub&amp;isAsync=true" CLIENT-IP="52.165.155.237:49984" X-ARR-LOG-ID="db4ec3d1-2b7d-4479-9937-d56424d9f826" X-SITE-DEPLOYMENT-ID="testfnscalyr" WAS-DEFAULT-HOSTNAME="testfnscalyr.scm.azurewebsites.net" X-Forwarded-Proto="https" >
+  <step title="FetchHandler" date="2019-04-01T19:52:06.203" >
+    <step title="Start deployment in the background" date="2019-04-01T19:52:06.374" /><!-- duration: 266ms -->
+  </step><!-- duration: 500ms -->
+  <step title="Outgoing response" date="2019-04-01T19:52:06.734" type="response" statusCode="202" statusText="Accepted" Server="Microsoft-IIS/10.0" Location="https://testfnscalyr.scm.azurewebsites.net/api/deployments/latest?deployer=GitHub&amp;time=2019-04-01_19-52-06Z" Cache-Control="private" X-AspNet-Version="4.0.30319" /><!-- duration: 16ms -->
+</step><!-- duration: 641ms -->

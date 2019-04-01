@@ -1,0 +1,9 @@
+<step title="Incoming Request" date="2019-04-01T20:23:49.301" instance="f763ae" url="/api/deployments/latest?deployer=GitHub&amp;time=2019-04-01_20-23-49Z" method="GET" type="request" pid="8300,2,11" Connection="Keep-Alive" Authorization="Bas..." Host="testfnscalyr.scm.azurewebsites.net" User-Agent="Azure-WebSites-Controller/81.0.7.40" x-ms-request-id="4786fc68-aacc-422a-b43d-521b79180404" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=GitHub&amp;time=2019-04-01_20-23-49Z" CLIENT-IP="52.165.155.237:48456" X-ARR-LOG-ID="4786fc68-aacc-422a-b43d-521b79180404" X-SITE-DEPLOYMENT-ID="testfnscalyr" WAS-DEFAULT-HOSTNAME="testfnscalyr.scm.azurewebsites.net" X-Forwarded-Proto="https" >
+  <step title="DeploymentService.GetResult" date="2019-04-01T20:23:49.332" >
+    <step title="DeploymentService.GetLatestDeployment" date="2019-04-01T20:23:49.363" >
+      <step title="DeploymentManager.GetResults" date="2019-04-01T20:23:49.426" /><!-- duration: 391ms -->
+      <step title="Deployment temp-daafcf1a is Pending" date="2019-04-01T20:23:49.848" /><!-- duration: 31ms -->
+    </step><!-- duration: 547ms -->
+  </step><!-- duration: 594ms -->
+  <step title="Outgoing response" date="2019-04-01T20:23:49.988" type="response" statusCode="202" statusText="Accepted" Server="Microsoft-IIS/10.0" x-ms-request-id="4786fc68-aacc-422a-b43d-521b79180404" Cache-Control="private" X-AspNet-Version="4.0.30319" Location="https://testfnscalyr.scm.azurewebsites.net/api/deployments/latest?deployer=GitHub&amp;time=2019-04-01_20-23-49Z" Content-Type="application/json; charset=utf-8" /><!-- duration: 16ms -->
+</step><!-- duration: 719ms -->

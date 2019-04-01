@@ -1,0 +1,4 @@
+<step title="BackgroundTrace" date="2019-04-01T20:23:48.863" instance="f763ae" url="/deploy" method="POST" >
+  <step title="Lock &apos;D:\home\site\locks\deployments.lock&apos; is currently held by &apos;Performing continuous deployment&apos; operation started at 2019-04-01T20:23:48.8480363Z." date="2019-04-01T20:23:48.894" /><!-- duration: 16ms -->
+  <step title="Update pending deployment marker file" date="2019-04-01T20:23:48.941" /><!-- duration: 31ms -->
+</step><!-- duration: 141ms -->

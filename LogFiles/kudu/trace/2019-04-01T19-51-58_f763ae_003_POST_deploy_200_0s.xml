@@ -1,0 +1,6 @@
+<step title="Incoming Request" date="2019-04-01T19:51:58.408" instance="f763ae" url="/deploy?scmType=GitHub" method="POST" type="request" pid="7460,2,34" Connection="Keep-Alive" Content-Length="9523" Content-Type="application/x-www-form-urlencoded" Accept="*/*" Authorization="Bas..." Host="testfnscalyr.scm.azurewebsites.net" User-Agent="GitHub-Hookshot/903858c" X-GitHub-Event="ping" X-GitHub-Delivery="9bba3190-54b7-11e9-9a37-631e6de07543" X-WAWS-Unencoded-URL="/deploy?scmType=GitHub" CLIENT-IP="192.30.252.41:63238" X-ARR-LOG-ID="45c517be-03d3-4990-b8ee-58acfe371a53" X-SITE-DEPLOYMENT-ID="testfnscalyr" WAS-DEFAULT-HOSTNAME="testfnscalyr.scm.azurewebsites.net" X-Forwarded-Proto="https" >
+  <step title="FetchHandler" date="2019-04-01T19:51:58.471" >
+    <step title="No-op for deployment." date="2019-04-01T19:51:58.533" /><!-- duration: 16ms -->
+  </step><!-- duration: 109ms -->
+  <step title="Outgoing response" date="2019-04-01T19:51:58.627" type="response" statusCode="200" statusText="OK" Server="Microsoft-IIS/10.0" Cache-Control="private" X-AspNet-Version="4.0.30319" /><!-- duration: 31ms -->
+</step><!-- duration: 328ms -->

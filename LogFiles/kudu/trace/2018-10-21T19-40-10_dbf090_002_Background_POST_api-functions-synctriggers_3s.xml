@@ -1,0 +1,7 @@
+<step title="BackgroundTrace" date="2018-10-21T19:40:10.790" instance="dbf090" url="/api/functions/synctriggers" method="POST" >
+  <step title="Cleanup Xml Logs" date="2018-10-21T19:40:10.837" /><!-- duration: 63ms -->
+  <step title="Syncing timerTrigger of TimerTriggerCSharp1" date="2018-10-21T19:40:11.165" /><!-- duration: 16ms -->
+  <step title="Begin HttpPost https://testfnscalyr.scm.azurewebsites.net/operations/settriggers, x-ms-request-id: c6d02663-e187-43fc-b03b-500502aa2e1a" date="2018-10-21T19:40:11.400" /><!-- duration: 62ms -->
+  <step title="End HttpPost, status: OK" date="2018-10-21T19:40:13.250" /><!-- duration: 31ms -->
+  <step title="Syncing 1 function triggers with payload size 123 bytes successful." date="2018-10-21T19:40:13.297" /><!-- duration: 31ms -->
+</step><!-- duration: 2569ms -->

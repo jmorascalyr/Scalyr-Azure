@@ -1,0 +1,26 @@
+<step title="BackgroundTrace" date="2019-04-01T19:52:06.406" instance="f763ae" url="/deploy" method="POST" >
+  <step title="Creating temporary deployment" date="2019-04-01T19:52:06.453" /><!-- duration: 141ms -->
+  <step title="Performing fetch based deployment" date="2019-04-01T19:52:06.640" >
+    <step title="DeploymentManager.Deploy(id:13e30393131618d6575eda21ee1185bce3130c6c)" date="2019-04-01T19:52:12.368" >
+      <step title="Collecting changeset information" date="2019-04-01T19:52:12.415" /><!-- duration: 219ms -->
+      <step title="Updating submodules" date="2019-04-01T19:52:12.711" /><!-- duration: 254ms -->
+      <step title="Determining deployment builder" date="2019-04-01T19:52:13.450" >
+        <step title="Builder is FunctionBasicBuilder" date="2019-04-01T19:52:13.559" /><!-- duration: 16ms -->
+      </step><!-- duration: 156ms -->
+      <step title="Copying SSH keys" date="2019-04-01T19:52:13.716" /><!-- duration: 47ms -->
+      <step title="Building" date="2019-04-01T19:52:13.778" >
+        <step title="Generating deployment script" date="2019-04-01T19:52:13.997" >
+          <step title="Executing external process" date="2019-04-01T19:52:14.106" type="process" path="starter.cmd" arguments="&quot;D:\Program Files (x86)\SiteExtensions\Kudu\80.10314.3823\bin\node_modules\.bin\kuduscript.cmd&quot; -y --no-dot-deployment -r &quot;D:\home\site\repository&quot; -o &quot;D:\home\site\deployments\tools&quot; --functionApp --sitePath &quot;D:\home\site\repository&quot;" /><!-- duration: 1736ms -->
+          <step title="Saved cached version of the deployment script for command -y --no-dot-deployment -r &quot;D:\home\site\repository&quot; -o &quot;D:\home\site\deployments\tools&quot; --functionApp --sitePath &quot;D:\home\site\repository&quot;" date="2019-04-01T19:52:15.905" /><!-- duration: 31ms -->
+        </step><!-- duration: 1970ms -->
+        <step title="Executing external process" date="2019-04-01T19:52:16.795" type="process" path="starter.cmd" arguments="&quot;D:\home\site\deployments\tools\deploy.cmd&quot;" /><!-- duration: 3064ms -->
+        <step title="Syncing timerTrigger of TimerTriggerCSharp1" date="2019-04-01T19:52:20.406" /><!-- duration: 63ms -->
+        <step title="Begin HttpPost https://testfnscalyr.scm.azurewebsites.net/operations/settriggers, x-ms-request-id: db4ec3d1-2b7d-4479-9937-d56424d9f826" date="2019-04-01T19:52:20.609" /><!-- duration: 31ms -->
+        <step title="End HttpPost, status: OK" date="2019-04-01T19:52:21.971" /><!-- duration: 31ms -->
+        <step title="Syncing 1 function triggers with payload size 123 bytes successful." date="2019-04-01T19:52:22.237" /><!-- duration: 31ms -->
+      </step><!-- duration: 9255ms -->
+    </step><!-- duration: 10697ms -->
+    <step title="Cleaning up temp files" date="2019-04-01T19:52:23.080" /><!-- duration: 31ms -->
+    <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2019-04-01T19:52:23.205" /><!-- duration: 156ms -->
+  </step><!-- duration: 16818ms -->
+</step><!-- duration: 17128ms -->

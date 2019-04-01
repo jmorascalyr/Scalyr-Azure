@@ -1,0 +1,12 @@
+<step title="Incoming Request" date="2019-04-01T20:24:01.654" instance="f763ae" url="/api/deployments/latest?deployer=GitHub&amp;time=2019-04-01_20-23-49Z" method="GET" type="request" pid="8300,2,11" Connection="Keep-Alive" Authorization="Bas..." Host="testfnscalyr.scm.azurewebsites.net" User-Agent="Azure-WebSites-Controller/81.0.7.40" x-ms-request-id="4786fc68-aacc-422a-b43d-521b79180404" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=GitHub&amp;time=2019-04-01_20-23-49Z" CLIENT-IP="52.165.155.237:48456" X-ARR-LOG-ID="4786fc68-aacc-422a-b43d-521b79180404" X-SITE-DEPLOYMENT-ID="testfnscalyr" WAS-DEFAULT-HOSTNAME="testfnscalyr.scm.azurewebsites.net" X-Forwarded-Proto="https" >
+  <step title="Cleanup Xml Logs" date="2019-04-01T20:24:01.716" >
+    <step title="Cleanup Infos" date="2019-04-01T20:24:01.779" totalFiles="206" totalCleanup="46" /><!-- duration: 5188ms -->
+  </step><!-- duration: 5266ms -->
+  <step title="DeploymentService.GetResult" date="2019-04-01T20:24:07.013" >
+    <step title="DeploymentService.GetLatestDeployment" date="2019-04-01T20:24:07.029" >
+      <step title="DeploymentManager.GetResults" date="2019-04-01T20:24:07.060" /><!-- duration: 219ms -->
+      <step title="Deployment 13e30393131618d6575eda21ee1185bce3130c6c is Building" date="2019-04-01T20:24:07.341" /><!-- duration: 16ms -->
+    </step><!-- duration: 344ms -->
+  </step><!-- duration: 406ms -->
+  <step title="Outgoing response" date="2019-04-01T20:24:07.451" type="response" statusCode="202" statusText="Accepted" Server="Microsoft-IIS/10.0" x-ms-request-id="4786fc68-aacc-422a-b43d-521b79180404" Cache-Control="private" X-AspNet-Version="4.0.30319" Location="https://testfnscalyr.scm.azurewebsites.net/api/deployments/latest?deployer=GitHub&amp;time=2019-04-01_20-23-49Z" Content-Type="application/json; charset=utf-8" /><!-- duration: 16ms -->
+</step><!-- duration: 5828ms -->

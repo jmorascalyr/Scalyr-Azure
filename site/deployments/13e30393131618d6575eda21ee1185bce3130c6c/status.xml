@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<deployment>
+  <id>13e30393131618d6575eda21ee1185bce3130c6c</id>
+  <author>jcm2582</author>
+  <deployer>GitHub</deployer>
+  <authorEmail>jcm2582@unm.edu</authorEmail>
+  <message>first commit</message>
+  <progress></progress>
+  <status>Success</status>
+  <statusText></statusText>
+  <lastSuccessEndTime>2019-04-01T20:24:08.0607649Z</lastSuccessEndTime>
+  <receivedTime>2019-04-01T20:23:53.2076761Z</receivedTime>
+  <startTime>2019-04-01T20:23:53.8476973Z</startTime>
+  <endTime>2019-04-01T20:24:08.0607649Z</endTime>
+  <complete>True</complete>
+  <is_temp>False</is_temp>
+  <is_readonly>False</is_readonly>
+</deployment>

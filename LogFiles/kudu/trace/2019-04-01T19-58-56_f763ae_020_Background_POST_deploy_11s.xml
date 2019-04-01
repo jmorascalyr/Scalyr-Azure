@@ -1,0 +1,25 @@
+<step title="BackgroundTrace" date="2019-04-01T19:58:56.850" instance="f763ae" url="/deploy" method="POST" >
+  <step title="Creating temporary deployment" date="2019-04-01T19:58:56.897" /><!-- duration: 125ms -->
+  <step title="Performing fetch based deployment" date="2019-04-01T19:58:57.069" >
+    <step title="DeploymentManager.Deploy(id:13e30393131618d6575eda21ee1185bce3130c6c)" date="2019-04-01T19:58:58.038" >
+      <step title="Collecting changeset information" date="2019-04-01T19:58:58.147" /><!-- duration: 516ms -->
+      <step title="Updating submodules" date="2019-04-01T19:58:58.772" /><!-- duration: 250ms -->
+      <step title="Determining deployment builder" date="2019-04-01T19:58:59.524" >
+        <step title="Builder is FunctionBasicBuilder" date="2019-04-01T19:58:59.616" /><!-- duration: 78ms -->
+      </step><!-- duration: 186ms -->
+      <step title="Copying SSH keys" date="2019-04-01T19:58:59.819" /><!-- duration: 47ms -->
+      <step title="Building" date="2019-04-01T19:58:59.897" >
+        <step title="Generating deployment script" date="2019-04-01T19:59:00.100" >
+          <step title="Using cached version of the deployment script for command: -y --no-dot-deployment -r &quot;D:\home\site\repository&quot; -o &quot;D:\home\site\deployments\tools&quot; --functionApp --sitePath &quot;D:\home\site\repository&quot;" date="2019-04-01T19:59:00.163" /><!-- duration: 63ms -->
+        </step><!-- duration: 172ms -->
+        <step title="Executing external process" date="2019-04-01T19:59:00.569" type="process" path="starter.cmd" arguments="&quot;D:\home\site\deployments\tools\deploy.cmd&quot;" /><!-- duration: 2594ms -->
+        <step title="Syncing timerTrigger of TimerTriggerCSharp1" date="2019-04-01T19:59:03.835" /><!-- duration: 16ms -->
+        <step title="Begin HttpPost https://testfnscalyr.scm.azurewebsites.net/operations/settriggers, x-ms-request-id: a16252df-f790-4004-ad30-a690ef89fcdd" date="2019-04-01T19:59:03.975" /><!-- duration: 16ms -->
+        <step title="End HttpPost, status: OK" date="2019-04-01T19:59:04.882" /><!-- duration: 47ms -->
+        <step title="Syncing 1 function triggers with payload size 123 bytes successful." date="2019-04-01T19:59:05.538" /><!-- duration: 16ms -->
+      </step><!-- duration: 6547ms -->
+    </step><!-- duration: 8453ms -->
+    <step title="Cleaning up temp files" date="2019-04-01T19:59:06.507" /><!-- duration: 31ms -->
+    <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2019-04-01T19:59:06.868" /><!-- duration: 78ms -->
+  </step><!-- duration: 10236ms -->
+</step><!-- duration: 10502ms -->

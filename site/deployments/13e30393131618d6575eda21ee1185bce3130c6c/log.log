@@ -1,0 +1,20 @@
+2019-04-01T20:23:53.5201835Z,Updating submodules.,ae163259-fc5a-4416-a63b-fc14fbff032b,0
+2019-04-01T20:23:53.7076908Z,Preparing deployment for commit id '13e3039313'.,22f6eb29-e0b1-412c-a815-cb448ae9d662,0
+2019-04-01T20:23:54.4979136Z,Generating deployment script.,4ef0058a-579e-4de1-b0b6-ebd48a190821,0
+	2019-04-01T20:23:54.6229109Z,Using the following command to generate deployment script: 'azure site deploymentscript -y --no-dot-deployment -r "D:\home\site\repository" -o "D:\home\site\deployments\tools" --functionApp --sitePath "D:\home\site\repository"'.,,0
+	2019-04-01T20:23:55.4198394Z,Generating deployment script for function App,,0
+	2019-04-01T20:23:55.4667167Z,Generated deployment script files,,0
+2019-04-01T20:23:55.7791939Z,Running deployment command...,cda28255-c23c-4e4b-8e87-e5259cc52464,0
+	2019-04-01T20:23:55.8104427Z,Command: "D:\home\site\deployments\tools\deploy.cmd",,0
+	2019-04-01T20:23:58.4355363Z,Handling function App deployment.,,0
+	2019-04-01T20:23:58.4511529Z,Not using funcpack because SCM_USE_FUNCPACK is not set to 1,,0
+	2019-04-01T20:23:58.4823913Z,Installing function extensions from nuget,,0
+	2019-04-01T20:24:00.8418248Z,Creating app_offline.htm,,0
+	2019-04-01T20:24:00.8730789Z,KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot',,0
+	2019-04-01T20:24:00.9043234Z,Copying file: 'readme.md',,0
+	2019-04-01T20:24:00.9199536Z,Deleting app_offline.htm,,0
+	2019-04-01T20:24:01.3105883Z,Restoring npm packages in "D:\home\site\wwwroot",,0
+	2019-04-01T20:24:01.5762168Z,Finished successfully.,,0
+2019-04-01T20:24:05.7326116Z,Running post deployment command(s)...,938d39fa-2609-4ab1-8d22-b0a7d62cf145,0
+2019-04-01T20:24:07.6701309Z,Syncing 1 function triggers with payload size 123 bytes successful.,098907fb-e350-4590-bb21-fc742c55bffc,0
+2019-04-01T20:24:07.9670331Z,Deployment successful.,0032943b-0d7a-43c9-a25f-f2dab4f2a0b2,0

@@ -1,0 +1,509 @@
+<Events><Event><System><Provider Name="IIS AspNetCore Module V2"/><EventID>1032</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-10-18T17:34:16Z"/><EventRecordID>1631366062</EventRecordID><Channel>Application</Channel><Computer>RD0003FFD12970</Computer><Security/></System><EventData><Data>Application 'D:\Program Files (x86)\SiteExtensions\Functions\2.0.12134\32bit\' started the coreclr in-process successfully.</Data></EventData></Event><Event><System><Provider Name="PowerShell"/><EventID>800</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-10-19T03:11:30Z"/><EventRecordID>1666000453</EventRecordID><Channel>Application</Channel><Computer>RD0003FFD12970</Computer><Security/></System><EventData><Data>        Add-Type -ReferencedAssemblies $requiredAssembly -TypeDefinition $source -Language CSharp -ErrorAction SilentlyContinue
+</Data><Data>	DetailSequence=1
+	DetailTotal=1
+
+	SequenceNumber=57
+
+	UserId=IIS APPPOOL\testfnscalyr
+	HostName=Default Host
+	HostVersion=5.1.14393.2368
+	HostId=0c01a41b-6fb0-4e76-a167-7544c0b90fd5
+	HostApplication=powershell Install-Package Newtonsoft.Json -Version 11.0.2
+	EngineVersion=5.1.14393.2368
+	RunspaceId=add796d2-28cc-42e4-a24b-efca7f9b47c6
+	PipelineId=2
+	ScriptName=D:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1
+	CommandLine=        Add-Type -ReferencedAssemblies $requiredAssembly -TypeDefinition $source -Language CSharp -ErrorAction SilentlyContinue
+</Data><Data>CommandInvocation(Add-Type): "Add-Type"
+ParameterBinding(Add-Type): name="ReferencedAssemblies"; value="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ..."
+ParameterBinding(Add-Type): name="TypeDefinition"; value="using System; 
+using System.Net;
+using System.Management.Automation;
+using Microsoft.Win32.SafeHandles;
+using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Versioning;
+using System.Security;
+
+namespace Microsoft.PowerShell.Commands.PowerShellGet 
+{ 
+    public static class Telemetry  
+    { 
+        public static void TraceMessageArtifactsNotFound(string[] artifactsNotFound, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { ArtifactsNotFound = artifactsNotFound });
+        }         
+        
+        public static void TraceMessageNonPSGalleryRegistration(string sourceLocationType, string sourceLocationHash, string installationPolicy, string packageManagementProvider, string publishLocationHash, string scriptSourceLocationHash, string scriptPublishLocationHash, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { SourceLocationType = sourceLocationType, SourceLocationHash = sourceLocationHash, InstallationPolicy = installationPolicy, PackageManagementProvider = packageManagementProvider, PublishLocationHash = publishLocationHash, ScriptSourceLocationHash = scriptSourceLocationHash, ScriptPublishLocationHash = scriptPublishLocationHash });
+        }         
+        
+    }
+    
+    /// &lt;summary&gt;
+    /// Used by Ping-Endpoint function to supply webproxy to HttpClient
+    /// We cannot use System.Net.WebProxy because this is not available on CoreClr
+    /// &lt;/summary&gt;
+    public class InternalWebProxy : IWebProxy
+    {
+        Uri _proxyUri;
+        ICredentials _credentials;
+
+        public InternalWebProxy(Uri uri, ICredentials credentials)
+        {
+            Credentials = credentials;
+            _proxyUri = uri;
+        }
+
+        /// &lt;summary&gt;
+        /// Credentials used by WebProxy
+        /// &lt;/summary&gt;
+        public ICredentials Credentials
+        {
+            get
+            {
+                return _credentials;
+            }
+            set
+            {
+                _credentials = value;
+            }
+        }
+
+        public Uri GetProxy(Uri destination)
+        {
+            return _proxyUri;
+        }
+
+        public bool IsBypassed(Uri host)
+        {
+            return false;
+        }
+    } 
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_PARA {
+        public CERT_CHAIN_POLICY_PARA(int size) {
+            cbSize = (uint) size;
+            dwFlags = 0;
+            pvExtraPolicyPara = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwFlags;
+        public IntPtr pvExtraPolicyPara; 
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_STATUS {
+        public CERT_CHAIN_POLICY_STATUS(int size) {
+            cbSize = (uint) size;
+            dwError = 0;
+            lChainIndex = IntPtr.Zero;
+            lElementIndex = IntPtr.Zero;
+            pvExtraPolicyStatus = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwError;
+        public IntPtr lChainIndex;
+        public IntPtr lElementIndex;
+        public IntPtr pvExtraPolicyStatus; 
+    }
+
+    // Internal SafeHandleZeroOrMinusOneIsInvalid class to remove the dependency on .Net Framework 4.6.
+    public abstract class InternalSafeHandleZeroOrMinusOneIsInvalid : SafeHandle
+    {
+        protected InternalSafeHandleZeroOrMinusOneIsInvalid(bool ownsHandle)
+            : base(IntPtr.Zero, ownsHandle)
+        {
+        }
+
+        public override bool IsInvalid
+        {
+            get
+            {
+                return handle == IntPtr.Zero || handle == new IntPtr(-1);
+            }
+        }
+    }
+
+    // Internal SafeX509ChainHandle class to remove the dependency on .Net Framework 4.6.
+    [SecurityCritical]
+    public sealed class InternalSafeX509ChainHandle : InternalSafeHandleZeroOrMinusOneIsInvalid { 
+        private InternalSafeX509ChainHandle () : base(true) {}
+ 
+        internal InternalSafeX509ChainHandle (IntPtr handle) : base (true) {
+            SetHandle(handle); 
+        }
+  
+        internal static InternalSafeX509ChainHandle InvalidHandle { 
+            get { return new InternalSafeX509ChainHandle(IntPtr.Zero); }
+        } 
+ 
+        [SecurityCritical]
+        override protected bool ReleaseHandle() 
+        {
+            CertFreeCertificateChain(handle);
+            return true;
+        } 
+
+        [DllImport("Crypt32.dll", SetLastError=true)]
+
+        [SuppressUnmanagedCodeSecurity,
+         ResourceExposure(ResourceScope.None),
+         ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+        
+        private static extern void CertFreeCertificateChain(IntPtr handle); 
+    }
+
+    public class Win32Helpers
+    {
+        [DllImport("Crypt32.dll", CharSet=CharSet.Auto, SetLastError=true)]
+        public extern static 
+        bool CertVerifyCertificateChainPolicy(
+            [In]     IntPtr                       pszPolicyOID,
+            [In]     SafeX509ChainHandle  pChainContext,
+            [In]     ref CERT_CHAIN_POLICY_PARA   pPolicyPara,
+            [In,Out] ref CERT_CHAIN_POLICY_STATUS pPolicyStatus);
+
+        [DllImport("Crypt32.dll", CharSet=CharSet.Auto, SetLastError=true)]
+        public static extern
+        SafeX509ChainHandle CertDuplicateCertificateChain(
+            [In]     IntPtr pChainContext);
+
+        [DllImport("Crypt32.dll", CharSet=CharSet.Auto, SetLastError=true)]
+    
+        [ResourceExposure(ResourceScope.None)]
+    
+        public static extern
+        SafeX509ChainHandle CertDuplicateCertificateChain(
+            [In]     SafeX509ChainHandle pChainContext);
+
+        public static bool IsMicrosoftCertificate([In] SafeX509ChainHandle pChainContext)
+        {
+            //-------------------------------------------------------------------------
+            //  CERT_CHAIN_POLICY_MICROSOFT_ROOT  
+            //  
+            //  Checks if the last element of the first simple chain contains a  
+            //  Microsoft root public key. If it doesn't contain a Microsoft root  
+            //  public key, dwError is set to CERT_E_UNTRUSTEDROOT.  
+            //  
+            //  pPolicyPara is optional. However,  
+            //  MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG can be set in  
+            //  the dwFlags in pPolicyPara to also check for the Microsoft Test Roots.  
+            //  
+            //  MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG can be set  
+            //  in the dwFlags in pPolicyPara to check for the Microsoft root for  
+            //  application signing instead of the Microsoft product root. This flag  
+            //  explicitly checks for the application root only and cannot be combined  
+            //  with the test root flag.    
+            //  
+            //  MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG can be set  
+            //  in the dwFlags in pPolicyPara to always disable the Flight root.  
+            //  
+            //  pvExtraPolicyPara and pvExtraPolicyStatus aren't used and must be set  
+            //  to NULL.  
+            //--------------------------------------------------------------------------  
+            const uint MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG       = 0x00010000;
+            const uint MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG = 0x00020000;
+            //const uint MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG    = 0x00040000;
+
+            CERT_CHAIN_POLICY_PARA PolicyPara = new CERT_CHAIN_POLICY_PARA(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_PARA)));
+            CERT_CHAIN_POLICY_STATUS PolicyStatus = new CERT_CHAIN_POLICY_STATUS(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_STATUS)));
+            int CERT_CHAIN_POLICY_MICROSOFT_ROOT = 7;
+            
+            PolicyPara.dwFlags = (uint) MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG;
+            bool isMicrosoftRoot = false;
+
+            if(CertVerifyCertificateChainPolicy(new IntPtr(CERT_CHAIN_POLICY_MICROSOFT_ROOT),
+                                                pChainContext,
+                                                ref PolicyPara,
+                                                ref PolicyStatus))
+            {
+                isMicrosoftRoot = (PolicyStatus.dwError == 0);
+            }
+
+            // Also check for the Microsoft root for application signing if the Microsoft product root verification is unsuccessful.
+            if(!isMicrosoftRoot)
+            {
+                // Some Microsoft modules can be signed with Microsoft Application Root instead of Microsoft Product Root,
+                // So we need to use the MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG for the certificate verification.
+                // MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG can not be used
+                // with MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG,
+                // so additional CertVerifyCertificateChainPolicy call is required to verify the given certificate is in Microsoft Application Root.
+                //
+                CERT_CHAIN_POLICY_PARA PolicyPara2 = new CERT_CHAIN_POLICY_PARA(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_PARA)));
+                CERT_CHAIN_POLICY_STATUS PolicyStatus2 = new CERT_CHAIN_POLICY_STATUS(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_STATUS)));
+                PolicyPara2.dwFlags = (uint) MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG;
+
+                if(CertVerifyCertificateChainPolicy(new IntPtr(CERT_CHAIN_POLICY_MICROSOFT_ROOT),
+                                                    pChainContext,
+                                                    ref PolicyPara2,
+                                                    ref PolicyStatus2))
+                {
+                    isMicrosoftRoot = (PolicyStatus2.dwError == 0);
+                }
+            }
+
+            return isMicrosoftRoot;
+        }
+    }
+} "
+ParameterBinding(Add-Type): name="Language"; value="CSharp"
+ParameterBinding(Add-Type): name="ErrorAction"; value="SilentlyContinue"
+</Data></EventData></Event><Event><System><Provider Name="PowerShell"/><EventID>800</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-10-19T03:12:22Z"/><EventRecordID>1666052171</EventRecordID><Channel>Application</Channel><Computer>RD0003FFD12970</Computer><Security/></System><EventData><Data>        Add-Type -ReferencedAssemblies $requiredAssembly -TypeDefinition $source -Language CSharp -ErrorAction SilentlyContinue
+</Data><Data>	DetailSequence=1
+	DetailTotal=1
+
+	SequenceNumber=57
+
+	UserId=IIS APPPOOL\testfnscalyr
+	HostName=Default Host
+	HostVersion=5.1.14393.2368
+	HostId=05fc2b66-389a-462e-a0f9-f5fa8dc50daf
+	HostApplication=powershell Install-Package Newtonsoft.Json -Version 11.0.2
+	EngineVersion=5.1.14393.2368
+	RunspaceId=1722b8d2-9c23-474d-89bc-a7b8122270ef
+	PipelineId=2
+	ScriptName=D:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1
+	CommandLine=        Add-Type -ReferencedAssemblies $requiredAssembly -TypeDefinition $source -Language CSharp -ErrorAction SilentlyContinue
+</Data><Data>CommandInvocation(Add-Type): "Add-Type"
+ParameterBinding(Add-Type): name="ReferencedAssemblies"; value="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ..."
+ParameterBinding(Add-Type): name="TypeDefinition"; value="using System; 
+using System.Net;
+using System.Management.Automation;
+using Microsoft.Win32.SafeHandles;
+using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Versioning;
+using System.Security;
+
+namespace Microsoft.PowerShell.Commands.PowerShellGet 
+{ 
+    public static class Telemetry  
+    { 
+        public static void TraceMessageArtifactsNotFound(string[] artifactsNotFound, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { ArtifactsNotFound = artifactsNotFound });
+        }         
+        
+        public static void TraceMessageNonPSGalleryRegistration(string sourceLocationType, string sourceLocationHash, string installationPolicy, string packageManagementProvider, string publishLocationHash, string scriptSourceLocationHash, string scriptPublishLocationHash, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { SourceLocationType = sourceLocationType, SourceLocationHash = sourceLocationHash, InstallationPolicy = installationPolicy, PackageManagementProvider = packageManagementProvider, PublishLocationHash = publishLocationHash, ScriptSourceLocationHash = scriptSourceLocationHash, ScriptPublishLocationHash = scriptPublishLocationHash });
+        }         
+        
+    }
+    
+    /// &lt;summary&gt;
+    /// Used by Ping-Endpoint function to supply webproxy to HttpClient
+    /// We cannot use System.Net.WebProxy because this is not available on CoreClr
+    /// &lt;/summary&gt;
+    public class InternalWebProxy : IWebProxy
+    {
+        Uri _proxyUri;
+        ICredentials _credentials;
+
+        public InternalWebProxy(Uri uri, ICredentials credentials)
+        {
+            Credentials = credentials;
+            _proxyUri = uri;
+        }
+
+        /// &lt;summary&gt;
+        /// Credentials used by WebProxy
+        /// &lt;/summary&gt;
+        public ICredentials Credentials
+        {
+            get
+            {
+                return _credentials;
+            }
+            set
+            {
+                _credentials = value;
+            }
+        }
+
+        public Uri GetProxy(Uri destination)
+        {
+            return _proxyUri;
+        }
+
+        public bool IsBypassed(Uri host)
+        {
+            return false;
+        }
+    } 
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_PARA {
+        public CERT_CHAIN_POLICY_PARA(int size) {
+            cbSize = (uint) size;
+            dwFlags = 0;
+            pvExtraPolicyPara = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwFlags;
+        public IntPtr pvExtraPolicyPara; 
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_STATUS {
+        public CERT_CHAIN_POLICY_STATUS(int size) {
+            cbSize = (uint) size;
+            dwError = 0;
+            lChainIndex = IntPtr.Zero;
+            lElementIndex = IntPtr.Zero;
+            pvExtraPolicyStatus = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwError;
+        public IntPtr lChainIndex;
+        public IntPtr lElementIndex;
+        public IntPtr pvExtraPolicyStatus; 
+    }
+
+    // Internal SafeHandleZeroOrMinusOneIsInvalid class to remove the dependency on .Net Framework 4.6.
+    public abstract class InternalSafeHandleZeroOrMinusOneIsInvalid : SafeHandle
+    {
+        protected InternalSafeHandleZeroOrMinusOneIsInvalid(bool ownsHandle)
+            : base(IntPtr.Zero, ownsHandle)
+        {
+        }
+
+        public override bool IsInvalid
+        {
+            get
+            {
+                return handle == IntPtr.Zero || handle == new IntPtr(-1);
+            }
+        }
+    }
+
+    // Internal SafeX509ChainHandle class to remove the dependency on .Net Framework 4.6.
+    [SecurityCritical]
+    public sealed class InternalSafeX509ChainHandle : InternalSafeHandleZeroOrMinusOneIsInvalid { 
+        private InternalSafeX509ChainHandle () : base(true) {}
+ 
+        internal InternalSafeX509ChainHandle (IntPtr handle) : base (true) {
+            SetHandle(handle); 
+        }
+  
+        internal static InternalSafeX509ChainHandle InvalidHandle { 
+            get { return new InternalSafeX509ChainHandle(IntPtr.Zero); }
+        } 
+ 
+        [SecurityCritical]
+        override protected bool ReleaseHandle() 
+        {
+            CertFreeCertificateChain(handle);
+            return true;
+        } 
+
+        [DllImport("Crypt32.dll", SetLastError=true)]
+
+        [SuppressUnmanagedCodeSecurity,
+         ResourceExposure(ResourceScope.None),
+         ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+        
+        private static extern void CertFreeCertificateChain(IntPtr handle); 
+    }
+
+    public class Win32Helpers
+    {
+        [DllImport("Crypt32.dll", CharSet=CharSet.Auto, SetLastError=true)]
+        public extern static 
+        bool CertVerifyCertificateChainPolicy(
+            [In]     IntPtr                       pszPolicyOID,
+            [In]     SafeX509ChainHandle  pChainContext,
+            [In]     ref CERT_CHAIN_POLICY_PARA   pPolicyPara,
+            [In,Out] ref CERT_CHAIN_POLICY_STATUS pPolicyStatus);
+
+        [DllImport("Crypt32.dll", CharSet=CharSet.Auto, SetLastError=true)]
+        public static extern
+        SafeX509ChainHandle CertDuplicateCertificateChain(
+            [In]     IntPtr pChainContext);
+
+        [DllImport("Crypt32.dll", CharSet=CharSet.Auto, SetLastError=true)]
+    
+        [ResourceExposure(ResourceScope.None)]
+    
+        public static extern
+        SafeX509ChainHandle CertDuplicateCertificateChain(
+            [In]     SafeX509ChainHandle pChainContext);
+
+        public static bool IsMicrosoftCertificate([In] SafeX509ChainHandle pChainContext)
+        {
+            //-------------------------------------------------------------------------
+            //  CERT_CHAIN_POLICY_MICROSOFT_ROOT  
+            //  
+            //  Checks if the last element of the first simple chain contains a  
+            //  Microsoft root public key. If it doesn't contain a Microsoft root  
+            //  public key, dwError is set to CERT_E_UNTRUSTEDROOT.  
+            //  
+            //  pPolicyPara is optional. However,  
+            //  MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG can be set in  
+            //  the dwFlags in pPolicyPara to also check for the Microsoft Test Roots.  
+            //  
+            //  MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG can be set  
+            //  in the dwFlags in pPolicyPara to check for the Microsoft root for  
+            //  application signing instead of the Microsoft product root. This flag  
+            //  explicitly checks for the application root only and cannot be combined  
+            //  with the test root flag.    
+            //  
+            //  MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG can be set  
+            //  in the dwFlags in pPolicyPara to always disable the Flight root.  
+            //  
+            //  pvExtraPolicyPara and pvExtraPolicyStatus aren't used and must be set  
+            //  to NULL.  
+            //--------------------------------------------------------------------------  
+            const uint MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG       = 0x00010000;
+            const uint MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG = 0x00020000;
+            //const uint MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG    = 0x00040000;
+
+            CERT_CHAIN_POLICY_PARA PolicyPara = new CERT_CHAIN_POLICY_PARA(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_PARA)));
+            CERT_CHAIN_POLICY_STATUS PolicyStatus = new CERT_CHAIN_POLICY_STATUS(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_STATUS)));
+            int CERT_CHAIN_POLICY_MICROSOFT_ROOT = 7;
+            
+            PolicyPara.dwFlags = (uint) MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG;
+            bool isMicrosoftRoot = false;
+
+            if(CertVerifyCertificateChainPolicy(new IntPtr(CERT_CHAIN_POLICY_MICROSOFT_ROOT),
+                                                pChainContext,
+                                                ref PolicyPara,
+                                                ref PolicyStatus))
+            {
+                isMicrosoftRoot = (PolicyStatus.dwError == 0);
+            }
+
+            // Also check for the Microsoft root for application signing if the Microsoft product root verification is unsuccessful.
+            if(!isMicrosoftRoot)
+            {
+                // Some Microsoft modules can be signed with Microsoft Application Root instead of Microsoft Product Root,
+                // So we need to use the MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG for the certificate verification.
+                // MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG can not be used
+                // with MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG,
+                // so additional CertVerifyCertificateChainPolicy call is required to verify the given certificate is in Microsoft Application Root.
+                //
+                CERT_CHAIN_POLICY_PARA PolicyPara2 = new CERT_CHAIN_POLICY_PARA(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_PARA)));
+                CERT_CHAIN_POLICY_STATUS PolicyStatus2 = new CERT_CHAIN_POLICY_STATUS(Marshal.SizeOf(typeof(CERT_CHAIN_POLICY_STATUS)));
+                PolicyPara2.dwFlags = (uint) MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG;
+
+                if(CertVerifyCertificateChainPolicy(new IntPtr(CERT_CHAIN_POLICY_MICROSOFT_ROOT),
+                                                    pChainContext,
+                                                    ref PolicyPara2,
+                                                    ref PolicyStatus2))
+                {
+                    isMicrosoftRoot = (PolicyStatus2.dwError == 0);
+                }
+            }
+
+            return isMicrosoftRoot;
+        }
+    }
+} "
+ParameterBinding(Add-Type): name="Language"; value="CSharp"
+ParameterBinding(Add-Type): name="ErrorAction"; value="SilentlyContinue"
+</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-10-30T20:27:09Z"/><EventRecordID>34764765</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46A5ED</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05B5DD88 [TID 4436] [PID 4284]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-10-30T20:27:12Z"/><EventRecordID>34767421</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46A5ED</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05308468 [TID 4812] [PID 3380]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-10-31T01:30:15Z"/><EventRecordID>52950203</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46A5ED</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=00D881C0 [TID 904] [PID 3520]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-02T01:05:06Z"/><EventRecordID>-1478790046</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46A5ED</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=051D6630 [TID 4972] [PID 3908]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-11T09:32:06Z"/><EventRecordID>999453296</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C4A9</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=059EED78 [TID 4484] [PID 5492]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-15T05:11:14Z"/><EventRecordID>334700421</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641D22</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=058765D0 [TID 3692] [PID 4988]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-15T08:24:29Z"/><EventRecordID>140173687</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46D0A4</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0B606610 [TID 4432] [PID 4032]</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-16T08:02:33Z"/><EventRecordID>88254500</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-17T08:02:33Z"/><EventRecordID>174651000</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-18T08:02:33Z"/><EventRecordID>261047062</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-19T08:02:34Z"/><EventRecordID>347444531</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-20T08:02:34Z"/><EventRecordID>433840843</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-21T08:02:34Z"/><EventRecordID>520237500</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-22T08:02:34Z"/><EventRecordID>606633859</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-23T08:02:34Z"/><EventRecordID>693030328</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-24T08:02:33Z"/><EventRecordID>779426406</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-25T08:02:33Z"/><EventRecordID>865822906</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-26T08:02:34Z"/><EventRecordID>952220109</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-27T08:02:35Z"/><EventRecordID>1038617781</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-28T08:02:34Z"/><EventRecordID>1125013671</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-29T08:02:34Z"/><EventRecordID>1211410234</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-30T08:02:35Z"/><EventRecordID>1297807453</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2018-12-31T08:02:34Z"/><EventRecordID>1384203140</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-01T08:02:34Z"/><EventRecordID>1470600000</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-02T08:02:35Z"/><EventRecordID>1556997375</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-03T08:02:35Z"/><EventRecordID>1643393500</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-04T08:02:35Z"/><EventRecordID>1729789781</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-05T08:02:35Z"/><EventRecordID>1816186359</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-06T08:02:35Z"/><EventRecordID>1902582812</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-07T08:02:34Z"/><EventRecordID>1988978562</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-08T08:02:34Z"/><EventRecordID>2075375171</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-09T08:02:34Z"/><EventRecordID>-2133195312</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-10T08:02:34Z"/><EventRecordID>-2046799031</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-11T08:02:35Z"/><EventRecordID>-1960401796</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-12T08:02:35Z"/><EventRecordID>-1874005234</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-13T08:02:35Z"/><EventRecordID>-1787608187</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-14T08:02:36Z"/><EventRecordID>-1701211500</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-15T08:02:36Z"/><EventRecordID>-1614814765</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-16T08:02:36Z"/><EventRecordID>-1528417984</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-17T08:02:37Z"/><EventRecordID>-1442020593</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-18T08:02:36Z"/><EventRecordID>-1355624546</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-19T08:02:36Z"/><EventRecordID>-1269228078</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-20T08:02:36Z"/><EventRecordID>-1182831750</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-21T08:02:37Z"/><EventRecordID>-1096434843</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-22T08:02:36Z"/><EventRecordID>-1010038640</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-23T08:02:36Z"/><EventRecordID>-923642484</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-24T08:02:37Z"/><EventRecordID>-837245171</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-25T08:02:37Z"/><EventRecordID>-750848656</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-26T08:02:36Z"/><EventRecordID>-664452593</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-27T08:02:36Z"/><EventRecordID>-578056265</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-28T08:02:36Z"/><EventRecordID>-491659765</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-29T08:02:36Z"/><EventRecordID>-405263234</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-30T08:02:36Z"/><EventRecordID>-318866953</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-01-31T08:02:37Z"/><EventRecordID>-232469187</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-01T08:02:36Z"/><EventRecordID>-146073687</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-02T08:02:36Z"/><EventRecordID>-59676796</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-03T08:02:36Z"/><EventRecordID>26719782</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-04T08:02:36Z"/><EventRecordID>113116032</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-05T08:02:36Z"/><EventRecordID>199512579</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T08:02:37Z"/><EventRecordID>285909704</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 1268.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T13:07:00Z"/><EventRecordID>304172610</EventRecordID><Channel>Application</Channel><Computer>RD0003FF641B2C</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0C119CD8 [TID 2172] [PID 1268]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T13:15:04Z"/><EventRecordID>17603453</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>Change in global configuration [TID 6224] [PID 3020]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T13:15:04Z"/><EventRecordID>17603531</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>Global configuration changed. Change path: MACHINE/WEBROOT/APPHOST/MAWSFNPLACEHOLDER16_V1, ApplicationManager: 0C1F7520 [TID 6224] [PID 3020]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T13:15:04Z"/><EventRecordID>17603593</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>Recycling application MACHINE/WEBROOT/APPHOST/MAWSFNPLACEHOLDER16_V1 [TID 6224] [PID 3020]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T13:23:52Z"/><EventRecordID>18131171</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>Change in global configuration [TID 6340] [PID 3020]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T13:23:52Z"/><EventRecordID>18131234</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>Global configuration changed. Change path: MACHINE/WEBROOT/APPHOST/MAWSFNPLACEHOLDER16_V1, ApplicationManager: 0C1F7520 [TID 6340] [PID 3020]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-06T13:23:52Z"/><EventRecordID>18131296</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>Recycling application MACHINE/WEBROOT/APPHOST/MAWSFNPLACEHOLDER16_V1 [TID 6340] [PID 3020]</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-07T08:52:37Z"/><EventRecordID>88254015</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 3020.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-08T08:52:37Z"/><EventRecordID>174651109</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 3020.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-08T20:28:00Z"/><EventRecordID>216372375</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0C1F7520 [TID 6800] [PID 3020]</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-09T08:52:38Z"/><EventRecordID>261048765</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 7092.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-10T08:38:46Z"/><EventRecordID>346614750</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=053EC2B0 [TID 4204] [PID 7092]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-12T05:34:35Z"/><EventRecordID>162722906</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46CEC2</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05CFE9B8 [TID 4808] [PID 3724]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-12T06:02:44Z"/><EventRecordID>163125906</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62C091</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0B863F30 [TID 5456] [PID 4516]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-15T09:24:13Z"/><EventRecordID>272456078</EventRecordID><Channel>Application</Channel><Computer>RD0003FF615D58</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05866928 [TID 3232] [PID 2176]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-16T23:54:42Z"/><EventRecordID>139642546</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62BF1B</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05A294A8 [TID 3748] [PID 1176]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-16T23:59:04Z"/><EventRecordID>139904765</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62BF1B</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05178CC0 [TID 3664] [PID 3212]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-17T00:14:41Z"/><EventRecordID>59296765</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46E012</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05EABC88 [TID 3560] [PID 4472]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-17T00:24:39Z"/><EventRecordID>59894937</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46E012</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=053E98D0 [TID 5008] [PID 3700]</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-20T05:43:27Z"/><EventRecordID>433846828</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62E194</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 7008.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-20T05:43:28Z"/><EventRecordID>433847703</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62E194</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 7772.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-20T06:44:12Z"/><EventRecordID>437491937</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62E194</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=00C3CF70 [TID 4592] [PID 7008]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-20T08:44:59Z"/><EventRecordID>444738359</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62E194</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0550A9A0 [TID 5760] [PID 8040]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-20T10:45:25Z"/><EventRecordID>451963421</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62E194</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=054DACD0 [TID 7340] [PID 5200]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-20T13:55:50Z"/><EventRecordID>463388187</EventRecordID><Channel>Application</Channel><Computer>RD0003FF62E194</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05E072A8 [TID 5784] [PID 7772]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-23T22:41:29Z"/><EventRecordID>293430843</EventRecordID><Channel>Application</Channel><Computer>RD0003FF61A4D6</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=050375D0 [TID 6828] [PID 2300]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-26T02:26:59Z"/><EventRecordID>479758093</EventRecordID><Channel>Application</Channel><Computer>RD0003FF61A4D6</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=007A7B30 [TID 7272] [PID 7616]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-26T06:48:25Z"/><EventRecordID>495443625</EventRecordID><Channel>Application</Channel><Computer>RD0003FF61A4D6</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=00E88058 [TID 6932] [PID 4784]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-26T07:35:16Z"/><EventRecordID>498255203</EventRecordID><Channel>Application</Channel><Computer>RD0003FF61A4D6</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05489388 [TID 2448] [PID 4524]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-26T07:59:30Z"/><EventRecordID>499709000</EventRecordID><Channel>Application</Channel><Computer>RD0003FF61A4D6</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=00D59528 [TID 4236] [PID 7572]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-26T08:34:27Z"/><EventRecordID>501806218</EventRecordID><Channel>Application</Channel><Computer>RD0003FF61A4D6</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=051C7C10 [TID 5400] [PID 4760]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-26T10:43:47Z"/><EventRecordID>509566343</EventRecordID><Channel>Application</Channel><Computer>RD0003FF61A4D6</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05EE4320 [TID 4160] [PID 1040]</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-27T08:53:41Z"/><EventRecordID>88264203</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 5980.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-28T08:53:42Z"/><EventRecordID>174662765</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 5980.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-29T08:53:41Z"/><EventRecordID>261060531</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 5980.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-30T08:53:41Z"/><EventRecordID>347458265</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 5980.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-03-31T08:53:41Z"/><EventRecordID>433856531</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 5980.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1022</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-04-01T08:53:41Z"/><EventRecordID>520254359</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>.NET Runtime version 4.0.30319.0 - Loading profiler failed.  Failed trying to receive from out of process a request to attach a profiler.  HRESULT: 0x8007006d.  Process ID (decimal): 5980.  Message ID: [0x250d].</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-04-01T19:52:00Z"/><EventRecordID>559752531</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0517D600 [TID 3804] [PID 5980]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-04-01T19:52:01Z"/><EventRecordID>559753390</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=05321D00 [TID 8580] [PID 7460]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-04-01T20:22:52Z"/><EventRecordID>561604265</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0C3833D8 [TID 7112] [PID 8932]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-04-01T20:22:53Z"/><EventRecordID>561605468</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=052ED2E8 [TID 2240] [PID 5856]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-04-01T20:23:44Z"/><EventRecordID>561655656</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=0536BD10 [TID 3188] [PID 8612]</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-04-01T20:23:44Z"/><EventRecordID>561655781</EventRecordID><Channel>Application</Channel><Computer>RD0003FF46778A</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=008C24A0 [TID 7724] [PID 3760]</Data></EventData></Event></Events>

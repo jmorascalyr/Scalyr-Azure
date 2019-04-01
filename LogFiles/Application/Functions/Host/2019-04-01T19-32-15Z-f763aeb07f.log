@@ -1,0 +1,1465 @@
+2019-04-01T19:32:14.101 [Info] Executing HTTP request: {
+  "requestId": "7cbd575e-9b76-4ed2-9864-27cfd102d31e",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys"
+}
+2019-04-01T19:32:14.132 [Info] Executed HTTP request: {
+  "requestId": "7cbd575e-9b76-4ed2-9864-27cfd102d31e",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:32:14.179 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:32:14.197 [Info] Executed HTTP request: {
+  "requestId": "6c21d38a-dfd5-434e-b074-99e6b865962a",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:32:14.461 [Info] Executing HTTP request: {
+  "requestId": "11a3d0e7-bd2a-417e-98d9-712c02f2043b",
+  "method": "GET",
+  "uri": "/admin/host/keys"
+}
+2019-04-01T19:32:14.461 [Info] Executed HTTP request: {
+  "requestId": "11a3d0e7-bd2a-417e-98d9-712c02f2043b",
+  "method": "GET",
+  "uri": "/admin/host/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:32:14.508 [Info] Executing HTTP request: {
+  "requestId": "4334482b-96fe-491a-af63-d731194f0dae",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master"
+}
+2019-04-01T19:32:14.508 [Info] Executed HTTP request: {
+  "requestId": "4334482b-96fe-491a-af63-d731194f0dae",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:32:14.523 [Info] Executing HTTP request: {
+  "requestId": "54a6de41-2ea0-459e-8a18-bd132431bad9",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys"
+}
+2019-04-01T19:32:14.711 [Info] Executed HTTP request: {
+  "requestId": "54a6de41-2ea0-459e-8a18-bd132431bad9",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:32:22.663 [Info] Executing HTTP request: {
+  "requestId": "8a5b020c-2b22-4002-bc1b-fed541f0ba47",
+  "method": "GET",
+  "uri": "/admin/host/status"
+}
+2019-04-01T19:32:22.663 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:32:22.663 [Info] Executed HTTP request: {
+  "requestId": "8a5b020c-2b22-4002-bc1b-fed541f0ba47",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:32:33.085 [Info] Executing HTTP request: {
+  "requestId": "7e2970a4-2180-4454-833c-303268196aa9",
+  "method": "GET",
+  "uri": "/admin/host/status"
+}
+2019-04-01T19:32:33.116 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:32:33.116 [Info] Executed HTTP request: {
+  "requestId": "7e2970a4-2180-4454-833c-303268196aa9",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:32:45.698 [Info] Executing HTTP request: {
+  "requestId": "1284a9c6-ae41-423c-81ee-7fd59b969e63",
+  "method": "GET",
+  "uri": "/admin/host/status"
+}
+2019-04-01T19:32:45.714 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:32:45.714 [Info] Executed HTTP request: {
+  "requestId": "1284a9c6-ae41-423c-81ee-7fd59b969e63",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:33:30.220 [Info] Executing HTTP request: {
+  "requestId": "fa90d18f-ca11-4eda-b131-6e3f129c4940",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:33:30.220 [Info] Executed HTTP request: {
+  "requestId": "fa90d18f-ca11-4eda-b131-6e3f129c4940",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:33:40.518 [Info] Executing HTTP request: {
+  "requestId": "989d2fed-66b4-4716-b0f1-abdf1daa4818",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:33:40.518 [Info] Executed HTTP request: {
+  "requestId": "989d2fed-66b4-4716-b0f1-abdf1daa4818",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:33:50.765 [Info] Executing HTTP request: {
+  "requestId": "6f8a78cc-6525-4709-96ff-57b1c010d205",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:33:50.765 [Info] Executed HTTP request: {
+  "requestId": "6f8a78cc-6525-4709-96ff-57b1c010d205",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:34:01.046 [Info] Executing HTTP request: {
+  "requestId": "f15087f7-0641-4b0b-8139-e78e5863e5dc",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:34:01.046 [Info] Executed HTTP request: {
+  "requestId": "f15087f7-0641-4b0b-8139-e78e5863e5dc",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:34:11.305 [Info] Executing HTTP request: {
+  "requestId": "6dd63cf0-c0fa-4eef-ba41-7bd21fc8b51e",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:34:11.305 [Info] Executed HTTP request: {
+  "requestId": "6dd63cf0-c0fa-4eef-ba41-7bd21fc8b51e",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:34:21.578 [Info] Executing HTTP request: {
+  "requestId": "da3245e4-675e-4209-94fc-f816b516524e",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:34:21.578 [Info] Executed HTTP request: {
+  "requestId": "da3245e4-675e-4209-94fc-f816b516524e",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:34:31.842 [Info] Executing HTTP request: {
+  "requestId": "95d0fa36-f63b-42c1-a8a4-b86197754c60",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:34:31.842 [Info] Executed HTTP request: {
+  "requestId": "95d0fa36-f63b-42c1-a8a4-b86197754c60",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:34:42.113 [Info] Executing HTTP request: {
+  "requestId": "646389d9-14e7-4042-abc3-f7c24b42899c",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:34:42.113 [Info] Executed HTTP request: {
+  "requestId": "646389d9-14e7-4042-abc3-f7c24b42899c",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:34:52.412 [Info] Executing HTTP request: {
+  "requestId": "0a4cfb2c-6b5c-46dc-bf9d-f1d83bd0c625",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:34:52.412 [Info] Executed HTTP request: {
+  "requestId": "0a4cfb2c-6b5c-46dc-bf9d-f1d83bd0c625",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:35:00.012 [Info,TimerTriggerCSharp1] Function started (Id=a45bae05-ff0d-4b03-b304-fbbd3f29dc9b)
+2019-04-01T19:35:00.012 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T19:35:00.0123000+00:00', Id=a45bae05-ff0d-4b03-b304-fbbd3f29dc9b)
+2019-04-01T19:35:00.387 [Info,TimerTriggerCSharp1] Function completed (Success, Id=a45bae05-ff0d-4b03-b304-fbbd3f29dc9b, Duration=374ms)
+2019-04-01T19:35:00.387 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=a45bae05-ff0d-4b03-b304-fbbd3f29dc9b)
+2019-04-01T19:35:02.717 [Info] Executing HTTP request: {
+  "requestId": "d00f5a3f-c2a0-449e-82ce-2ea8ab69850e",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:35:02.717 [Info] Executed HTTP request: {
+  "requestId": "d00f5a3f-c2a0-449e-82ce-2ea8ab69850e",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:38:30.299 [Info] Executing HTTP request: {
+  "requestId": "a7201281-00bf-4de9-9e29-a80799925197",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:38:30.299 [Info] Executed HTTP request: {
+  "requestId": "a7201281-00bf-4de9-9e29-a80799925197",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:38:40.538 [Info] Executing HTTP request: {
+  "requestId": "9314e16d-fe06-4047-bfec-05de04322fa7",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:38:40.538 [Info] Executed HTTP request: {
+  "requestId": "9314e16d-fe06-4047-bfec-05de04322fa7",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:38:50.820 [Info] Executing HTTP request: {
+  "requestId": "95a8aa67-3325-4dfd-8571-cbe2d75e9c03",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:38:50.820 [Info] Executed HTTP request: {
+  "requestId": "95a8aa67-3325-4dfd-8571-cbe2d75e9c03",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:39:01.109 [Info] Executing HTTP request: {
+  "requestId": "f6380193-e8ad-496a-8681-e947275451f4",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:39:01.109 [Info] Executed HTTP request: {
+  "requestId": "f6380193-e8ad-496a-8681-e947275451f4",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:39:11.360 [Info] Executing HTTP request: {
+  "requestId": "4d18f7e9-8e0a-4daf-b6b3-00246ec84767",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:39:11.360 [Info] Executed HTTP request: {
+  "requestId": "4d18f7e9-8e0a-4daf-b6b3-00246ec84767",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:39:21.610 [Info] Executing HTTP request: {
+  "requestId": "eb47198d-b5e9-4d72-ada4-9cb94d040834",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:39:21.610 [Info] Executed HTTP request: {
+  "requestId": "eb47198d-b5e9-4d72-ada4-9cb94d040834",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:39:31.872 [Info] Executing HTTP request: {
+  "requestId": "37d8f601-4b85-42e3-a886-bf3f5d1ccb9a",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:39:31.872 [Info] Executed HTTP request: {
+  "requestId": "37d8f601-4b85-42e3-a886-bf3f5d1ccb9a",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:39:42.080 [Info] Executing HTTP request: {
+  "requestId": "ea407ec6-e50d-4dba-b141-f13023044b92",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:39:42.080 [Info] Executed HTTP request: {
+  "requestId": "ea407ec6-e50d-4dba-b141-f13023044b92",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:39:52.362 [Info] Executing HTTP request: {
+  "requestId": "bdbf1458-a06a-4aa9-8bd7-4399491de0dd",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:39:52.362 [Info] Executed HTTP request: {
+  "requestId": "bdbf1458-a06a-4aa9-8bd7-4399491de0dd",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:40:00.016 [Info,TimerTriggerCSharp1] Function started (Id=73ffb1d5-9ff1-4c93-8686-f9604fc562f5)
+2019-04-01T19:40:00.016 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T19:40:00.0165904+00:00', Id=73ffb1d5-9ff1-4c93-8686-f9604fc562f5)
+2019-04-01T19:40:00.438 [Info,TimerTriggerCSharp1] Function completed (Success, Id=73ffb1d5-9ff1-4c93-8686-f9604fc562f5, Duration=429ms)
+2019-04-01T19:40:00.438 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=73ffb1d5-9ff1-4c93-8686-f9604fc562f5)
+2019-04-01T19:40:02.626 [Info] Executing HTTP request: {
+  "requestId": "91d5274f-a229-46d9-9a31-e12401746fde",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:40:02.626 [Info] Executed HTTP request: {
+  "requestId": "91d5274f-a229-46d9-9a31-e12401746fde",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:43:30.498 [Info] Executing HTTP request: {
+  "requestId": "b8a076e7-e7fe-4aca-8fdf-1186ccc07f09",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:43:30.498 [Info] Executed HTTP request: {
+  "requestId": "b8a076e7-e7fe-4aca-8fdf-1186ccc07f09",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:43:40.757 [Info] Executing HTTP request: {
+  "requestId": "0eb71c7b-03f0-4fe4-b5ae-849856189659",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:43:40.757 [Info] Executed HTTP request: {
+  "requestId": "0eb71c7b-03f0-4fe4-b5ae-849856189659",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:43:51.040 [Info] Executing HTTP request: {
+  "requestId": "a1af6582-221b-4f5a-abac-af08f80b339e",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:43:51.040 [Info] Executed HTTP request: {
+  "requestId": "a1af6582-221b-4f5a-abac-af08f80b339e",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:44:01.348 [Info] Executing HTTP request: {
+  "requestId": "f4e49a07-a038-4ded-94db-6eea613f717e",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:44:01.348 [Info] Executed HTTP request: {
+  "requestId": "f4e49a07-a038-4ded-94db-6eea613f717e",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:44:11.646 [Info] Executing HTTP request: {
+  "requestId": "60c838e8-0761-4c8d-b037-ac32cda0cc94",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:44:11.646 [Info] Executed HTTP request: {
+  "requestId": "60c838e8-0761-4c8d-b037-ac32cda0cc94",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:44:21.869 [Info] Executing HTTP request: {
+  "requestId": "16b6986f-ab9a-4314-abeb-7905a1605cde",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:44:21.884 [Info] Executed HTTP request: {
+  "requestId": "16b6986f-ab9a-4314-abeb-7905a1605cde",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:44:32.128 [Info] Executing HTTP request: {
+  "requestId": "572539d4-5078-4160-be48-cfe4c408992f",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:44:32.128 [Info] Executed HTTP request: {
+  "requestId": "572539d4-5078-4160-be48-cfe4c408992f",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:44:42.420 [Info] Executing HTTP request: {
+  "requestId": "a58505be-5b04-4cd3-b5c3-30d791446af2",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:44:42.420 [Info] Executed HTTP request: {
+  "requestId": "a58505be-5b04-4cd3-b5c3-30d791446af2",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:44:52.696 [Info] Executing HTTP request: {
+  "requestId": "6038079e-c643-48b6-b6c5-4fe104786539",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:44:52.696 [Info] Executed HTTP request: {
+  "requestId": "6038079e-c643-48b6-b6c5-4fe104786539",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:45:00.012 [Info,TimerTriggerCSharp1] Function started (Id=843b203c-72a1-4d6a-ac4e-49234b726cf8)
+2019-04-01T19:45:00.012 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T19:45:00.0124204+00:00', Id=843b203c-72a1-4d6a-ac4e-49234b726cf8)
+2019-04-01T19:45:00.434 [Info,TimerTriggerCSharp1] Function completed (Success, Id=843b203c-72a1-4d6a-ac4e-49234b726cf8, Duration=424ms)
+2019-04-01T19:45:00.434 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=843b203c-72a1-4d6a-ac4e-49234b726cf8)
+2019-04-01T19:45:02.941 [Info] Executing HTTP request: {
+  "requestId": "566d2dcd-3ea5-4ea1-9755-11af29ee3f39",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:45:02.941 [Info] Executed HTTP request: {
+  "requestId": "566d2dcd-3ea5-4ea1-9755-11af29ee3f39",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:55:40.292 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:55:40.292 [Info] Executed HTTP request: {
+  "requestId": "654299be-17a1-4746-84d5-83489447be33",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:55:40.683 [Info] Executing HTTP request: {
+  "requestId": "66e6377c-b452-48a7-97bf-db5218bbe740",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master"
+}
+2019-04-01T19:55:40.683 [Info] Executed HTTP request: {
+  "requestId": "66e6377c-b452-48a7-97bf-db5218bbe740",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:55:40.714 [Info] Executing HTTP request: {
+  "requestId": "72439730-dd6a-4b4e-a09b-fb296cf83db6",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys"
+}
+2019-04-01T19:55:40.730 [Info] Executing HTTP request: {
+  "requestId": "071f705d-a7b5-4266-b3c2-61e0298478ad",
+  "method": "GET",
+  "uri": "/admin/host/keys"
+}
+2019-04-01T19:55:40.730 [Info] Executed HTTP request: {
+  "requestId": "071f705d-a7b5-4266-b3c2-61e0298478ad",
+  "method": "GET",
+  "uri": "/admin/host/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:55:40.886 [Info] Executed HTTP request: {
+  "requestId": "72439730-dd6a-4b4e-a09b-fb296cf83db6",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:55:46.855 [Info,TimerTriggerCSharp1] Function completed (Success, Id=6dbaed5e-5b74-4d9c-b76e-38f53cf3b0cc, Duration=46843ms)
+2019-04-01T19:55:46.855 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=6dbaed5e-5b74-4d9c-b76e-38f53cf3b0cc)
+2019-04-01T19:55:54.186 [Info] Executing HTTP request: {
+  "requestId": "d18ea710-0720-41d2-a01f-32c0de8afbdb",
+  "method": "GET",
+  "uri": "/admin/host/status"
+}
+2019-04-01T19:55:54.202 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:55:54.202 [Info] Executed HTTP request: {
+  "requestId": "d18ea710-0720-41d2-a01f-32c0de8afbdb",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:57:12.482 [Info] Executing HTTP request: {
+  "requestId": "75831f76-8f13-4012-9d0e-865fb091b6b5",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/status"
+}
+2019-04-01T19:57:12.482 [Info] Executed HTTP request: {
+  "requestId": "75831f76-8f13-4012-9d0e-865fb091b6b5",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:57:12.482 [Info] Executing HTTP request: {
+  "requestId": "3191e648-367a-4fc8-9619-7900a4a5291a",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys"
+}
+2019-04-01T19:57:12.482 [Info] Executed HTTP request: {
+  "requestId": "3191e648-367a-4fc8-9619-7900a4a5291a",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:57:12.482 [Info] Executing HTTP request: {
+  "requestId": "97d4dd0e-ef01-4fd0-a218-b9210b12f905",
+  "method": "GET",
+  "uri": "/admin/host/status"
+}
+2019-04-01T19:57:12.514 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:57:12.514 [Info] Executed HTTP request: {
+  "requestId": "97d4dd0e-ef01-4fd0-a218-b9210b12f905",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:57:12.826 [Info] Executing HTTP request: {
+  "requestId": "b1c5769c-8773-4b17-920b-1352ec03bd4b",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master"
+}
+2019-04-01T19:57:12.842 [Info] Executed HTTP request: {
+  "requestId": "b1c5769c-8773-4b17-920b-1352ec03bd4b",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:57:12.842 [Info] Executing HTTP request: {
+  "requestId": "c01965e0-7ffb-4a66-a9b7-0139ccc0043a",
+  "method": "GET",
+  "uri": "/admin/host/keys"
+}
+2019-04-01T19:57:12.857 [Info] Executed HTTP request: {
+  "requestId": "c01965e0-7ffb-4a66-a9b7-0139ccc0043a",
+  "method": "GET",
+  "uri": "/admin/host/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:57:12.857 [Info] Executing HTTP request: {
+  "requestId": "614b4a16-2196-4874-8c42-36f0a6110254",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys"
+}
+2019-04-01T19:57:12.935 [Info] Executed HTTP request: {
+  "requestId": "614b4a16-2196-4874-8c42-36f0a6110254",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:57:34.112 [Info] Executing HTTP request: {
+  "requestId": "cea86d57-2d30-4531-915d-125451e440cb",
+  "method": "GET",
+  "uri": "/admin/host/status"
+}
+2019-04-01T19:57:34.127 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T19:57:34.127 [Info] Executed HTTP request: {
+  "requestId": "cea86d57-2d30-4531-915d-125451e440cb",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T19:58:30.420 [Info] Executing HTTP request: {
+  "requestId": "b69bc52b-ced7-4cce-8ac6-d082cb3ce22c",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:58:30.420 [Info] Executed HTTP request: {
+  "requestId": "b69bc52b-ced7-4cce-8ac6-d082cb3ce22c",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:58:40.676 [Info] Executing HTTP request: {
+  "requestId": "bfd6821b-ddc2-41c9-a5a3-db1063c832fc",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:58:40.676 [Info] Executed HTTP request: {
+  "requestId": "bfd6821b-ddc2-41c9-a5a3-db1063c832fc",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:58:50.910 [Info] Executing HTTP request: {
+  "requestId": "186d80da-a906-43f3-afa9-525d56e236de",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:58:50.910 [Info] Executed HTTP request: {
+  "requestId": "186d80da-a906-43f3-afa9-525d56e236de",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:59:01.304 [Info] Executing HTTP request: {
+  "requestId": "2a8d83ba-334d-48cf-8581-9620e4ab1063",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:59:01.304 [Info] Executed HTTP request: {
+  "requestId": "2a8d83ba-334d-48cf-8581-9620e4ab1063",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:59:16.574 [Info] Executing HTTP request: {
+  "requestId": "18328577-c95d-4422-afa7-b04fdad6dc48",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:59:16.574 [Info] Executed HTTP request: {
+  "requestId": "18328577-c95d-4422-afa7-b04fdad6dc48",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:59:26.833 [Info] Executing HTTP request: {
+  "requestId": "fa38a0cb-c16b-4cab-a237-cebc9c762bb3",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:59:26.833 [Info] Executed HTTP request: {
+  "requestId": "fa38a0cb-c16b-4cab-a237-cebc9c762bb3",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:59:37.100 [Info] Executing HTTP request: {
+  "requestId": "5ee5292c-e110-47bd-a97f-75ced4e493ee",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:59:37.100 [Info] Executed HTTP request: {
+  "requestId": "5ee5292c-e110-47bd-a97f-75ced4e493ee",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:59:47.431 [Info] Executing HTTP request: {
+  "requestId": "ae4a0ec8-1ce4-4ffd-bc1b-9b5f89bf40b4",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:59:47.431 [Info] Executed HTTP request: {
+  "requestId": "ae4a0ec8-1ce4-4ffd-bc1b-9b5f89bf40b4",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T19:59:57.600 [Info] Executing HTTP request: {
+  "requestId": "4eb7bc4d-853a-4590-8b1b-8c68f84d7dae",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T19:59:57.600 [Info] Executed HTTP request: {
+  "requestId": "4eb7bc4d-853a-4590-8b1b-8c68f84d7dae",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:00:00.008 [Info,TimerTriggerCSharp1] Function started (Id=f7f480bb-b7fc-42d2-a478-4460bcae330c)
+2019-04-01T20:00:00.008 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T20:00:00.0087092+00:00', Id=f7f480bb-b7fc-42d2-a478-4460bcae330c)
+2019-04-01T20:00:05.627 [Info,TimerTriggerCSharp1] Function completed (Success, Id=f7f480bb-b7fc-42d2-a478-4460bcae330c, Duration=5624ms)
+2019-04-01T20:00:05.627 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=f7f480bb-b7fc-42d2-a478-4460bcae330c)
+2019-04-01T20:00:07.847 [Info] Executing HTTP request: {
+  "requestId": "b7522ff4-d5df-463f-b7d6-2a9bb1b12c66",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:00:07.847 [Info] Executed HTTP request: {
+  "requestId": "b7522ff4-d5df-463f-b7d6-2a9bb1b12c66",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:03:30.241 [Info] Executing HTTP request: {
+  "requestId": "242ace57-e6b2-4e1e-8f2d-b003d5d8d91a",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:03:30.241 [Info] Executed HTTP request: {
+  "requestId": "242ace57-e6b2-4e1e-8f2d-b003d5d8d91a",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:03:40.507 [Info] Executing HTTP request: {
+  "requestId": "91053b14-f837-4909-a629-b3f038d946b6",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:03:40.507 [Info] Executed HTTP request: {
+  "requestId": "91053b14-f837-4909-a629-b3f038d946b6",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:03:51.341 [Info] Executing HTTP request: {
+  "requestId": "d2294ee3-dee0-48a7-bb60-c4573505daff",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:03:51.341 [Info] Executed HTTP request: {
+  "requestId": "d2294ee3-dee0-48a7-bb60-c4573505daff",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:04:01.599 [Info] Executing HTTP request: {
+  "requestId": "aea25c79-7b5f-4984-aa50-70fb3cdecb1e",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:04:01.599 [Info] Executed HTTP request: {
+  "requestId": "aea25c79-7b5f-4984-aa50-70fb3cdecb1e",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:04:11.877 [Info] Executing HTTP request: {
+  "requestId": "f5b44def-03a9-48f8-b1d8-bc8aee9d5812",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:04:11.877 [Info] Executed HTTP request: {
+  "requestId": "f5b44def-03a9-48f8-b1d8-bc8aee9d5812",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:04:22.141 [Info] Executing HTTP request: {
+  "requestId": "8e4ef166-2693-4711-94e5-1b52c4443c08",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:04:22.141 [Info] Executed HTTP request: {
+  "requestId": "8e4ef166-2693-4711-94e5-1b52c4443c08",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:04:32.416 [Info] Executing HTTP request: {
+  "requestId": "ade2ac7b-759c-4dea-b019-7a30f53524a3",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:04:32.416 [Info] Executed HTTP request: {
+  "requestId": "ade2ac7b-759c-4dea-b019-7a30f53524a3",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:04:42.662 [Info] Executing HTTP request: {
+  "requestId": "278927ee-c06c-41aa-9660-868448b87f8d",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:04:42.662 [Info] Executed HTTP request: {
+  "requestId": "278927ee-c06c-41aa-9660-868448b87f8d",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:04:52.927 [Info] Executing HTTP request: {
+  "requestId": "7e6f26ee-5053-4cbd-a189-8897fed71ad7",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:04:52.927 [Info] Executed HTTP request: {
+  "requestId": "7e6f26ee-5053-4cbd-a189-8897fed71ad7",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:05:00.028 [Info,TimerTriggerCSharp1] Function started (Id=3d12403a-16f1-4ca7-b9d6-85df9eae61a6)
+2019-04-01T20:05:00.028 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T20:05:00.0282956+00:00', Id=3d12403a-16f1-4ca7-b9d6-85df9eae61a6)
+2019-04-01T20:05:00.434 [Info,TimerTriggerCSharp1] Function completed (Success, Id=3d12403a-16f1-4ca7-b9d6-85df9eae61a6, Duration=408ms)
+2019-04-01T20:05:00.434 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=3d12403a-16f1-4ca7-b9d6-85df9eae61a6)
+2019-04-01T20:05:03.185 [Info] Executing HTTP request: {
+  "requestId": "7d930668-480b-4252-adf4-cb2a7dba2405",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:05:03.185 [Info] Executed HTTP request: {
+  "requestId": "7d930668-480b-4252-adf4-cb2a7dba2405",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:08:30.077 [Info] Executing HTTP request: {
+  "requestId": "a6d3b8ec-c4e3-475f-8f74-c4a1bb9bcd13",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:08:30.077 [Info] Executed HTTP request: {
+  "requestId": "a6d3b8ec-c4e3-475f-8f74-c4a1bb9bcd13",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:08:40.346 [Info] Executing HTTP request: {
+  "requestId": "10646fa9-bb89-4a5d-a30b-9eb019bb396f",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:08:40.346 [Info] Executed HTTP request: {
+  "requestId": "10646fa9-bb89-4a5d-a30b-9eb019bb396f",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:08:50.666 [Info] Executing HTTP request: {
+  "requestId": "3973598d-4f1f-4711-a342-d1191ae2a874",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:08:50.666 [Info] Executed HTTP request: {
+  "requestId": "3973598d-4f1f-4711-a342-d1191ae2a874",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:09:00.907 [Info] Executing HTTP request: {
+  "requestId": "aae441bc-e5d0-4221-8e0f-ccdf8efdb7db",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:09:00.907 [Info] Executed HTTP request: {
+  "requestId": "aae441bc-e5d0-4221-8e0f-ccdf8efdb7db",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:09:11.298 [Info] Executing HTTP request: {
+  "requestId": "fef75c86-ffce-4988-968e-edebdbaa2bf6",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:09:11.298 [Info] Executed HTTP request: {
+  "requestId": "fef75c86-ffce-4988-968e-edebdbaa2bf6",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:09:21.344 [Info] Executing HTTP request: {
+  "requestId": "bde74fa6-7a78-4de2-ad81-2b4bb6761ac3",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:09:21.344 [Info] Executed HTTP request: {
+  "requestId": "bde74fa6-7a78-4de2-ad81-2b4bb6761ac3",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:09:31.599 [Info] Executing HTTP request: {
+  "requestId": "34a454fb-bc1f-4ec0-a462-d22ce590ef7d",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:09:31.599 [Info] Executed HTTP request: {
+  "requestId": "34a454fb-bc1f-4ec0-a462-d22ce590ef7d",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:09:41.857 [Info] Executing HTTP request: {
+  "requestId": "b42f40a1-e03d-45f7-921a-213797a03c4f",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:09:41.857 [Info] Executed HTTP request: {
+  "requestId": "b42f40a1-e03d-45f7-921a-213797a03c4f",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:09:52.118 [Info] Executing HTTP request: {
+  "requestId": "ab08f7d3-8177-4671-b17d-82f5f616b4ce",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:09:52.118 [Info] Executed HTTP request: {
+  "requestId": "ab08f7d3-8177-4671-b17d-82f5f616b4ce",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:10:00.008 [Info,TimerTriggerCSharp1] Function started (Id=852781ff-4eb3-442c-b2d5-c1afee22945f)
+2019-04-01T20:10:00.008 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T20:10:00.0081815+00:00', Id=852781ff-4eb3-442c-b2d5-c1afee22945f)
+2019-04-01T20:10:00.492 [Info,TimerTriggerCSharp1] Function completed (Success, Id=852781ff-4eb3-442c-b2d5-c1afee22945f, Duration=496ms)
+2019-04-01T20:10:00.508 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=852781ff-4eb3-442c-b2d5-c1afee22945f)
+2019-04-01T20:10:02.367 [Info] Executing HTTP request: {
+  "requestId": "63f36226-7804-4191-851c-51c471782629",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:10:02.367 [Info] Executed HTTP request: {
+  "requestId": "63f36226-7804-4191-851c-51c471782629",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:25:45.595 [Info] Executing HTTP request: {
+  "requestId": "8f09b0d9-7690-41db-9c23-eb0543dd783f",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/status"
+}
+2019-04-01T20:25:45.611 [Info] Executed HTTP request: {
+  "requestId": "8f09b0d9-7690-41db-9c23-eb0543dd783f",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T20:25:45.752 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T20:25:45.752 [Info] Executed HTTP request: {
+  "requestId": "955f4ae1-aebe-4c2c-b202-e6515e6ab70c",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T20:25:46.048 [Info] Executing HTTP request: {
+  "requestId": "5705809e-8037-4272-a033-0f054d5e1747",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master"
+}
+2019-04-01T20:25:46.048 [Info] Executed HTTP request: {
+  "requestId": "5705809e-8037-4272-a033-0f054d5e1747",
+  "method": "GET",
+  "uri": "/admin/host/systemkeys/_master",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T20:25:46.064 [Info] Executing HTTP request: {
+  "requestId": "32072d37-deca-4ea4-8de4-894d17659e33",
+  "method": "GET",
+  "uri": "/admin/host/keys"
+}
+2019-04-01T20:25:46.064 [Info] Executed HTTP request: {
+  "requestId": "32072d37-deca-4ea4-8de4-894d17659e33",
+  "method": "GET",
+  "uri": "/admin/host/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T20:25:46.064 [Info] Executing HTTP request: {
+  "requestId": "88e83a93-934f-43c6-81ac-4e18047b0c9e",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys"
+}
+2019-04-01T20:25:46.111 [Info] Executed HTTP request: {
+  "requestId": "88e83a93-934f-43c6-81ac-4e18047b0c9e",
+  "method": "GET",
+  "uri": "/admin/functions/TimerTriggerCSharp1/keys",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T20:25:53.770 [Info] Executing HTTP request: {
+  "requestId": "633bcf2e-d554-4ba6-bb43-2000d74f87c9",
+  "method": "GET",
+  "uri": "/admin/host/status"
+}
+2019-04-01T20:25:53.785 [Info] Host Status: {
+  "id": "testfnscalyr",
+  "state": "Running",
+  "version": "1.0.12299.0"
+}
+2019-04-01T20:25:53.785 [Info] Executed HTTP request: {
+  "requestId": "633bcf2e-d554-4ba6-bb43-2000d74f87c9",
+  "method": "GET",
+  "uri": "/admin/host/status",
+  "authorizationLevel": "Admin",
+  "status": "OK"
+}
+2019-04-01T20:28:30.301 [Info] Executing HTTP request: {
+  "requestId": "a56e5d2c-d290-4dd2-b990-eeeb8a04d1a5",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:28:30.301 [Info] Executed HTTP request: {
+  "requestId": "a56e5d2c-d290-4dd2-b990-eeeb8a04d1a5",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:28:40.544 [Info] Executing HTTP request: {
+  "requestId": "ac480465-da28-4423-89b5-3c0fd94664c8",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:28:40.560 [Info] Executed HTTP request: {
+  "requestId": "ac480465-da28-4423-89b5-3c0fd94664c8",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:28:50.821 [Info] Executing HTTP request: {
+  "requestId": "10add526-20e5-4a96-9f27-efa739f9381b",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:28:50.821 [Info] Executed HTTP request: {
+  "requestId": "10add526-20e5-4a96-9f27-efa739f9381b",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:29:01.085 [Info] Executing HTTP request: {
+  "requestId": "e5b07cf3-babd-4deb-a8f3-66d0e0ae435a",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:29:01.085 [Info] Executed HTTP request: {
+  "requestId": "e5b07cf3-babd-4deb-a8f3-66d0e0ae435a",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:29:11.349 [Info] Executing HTTP request: {
+  "requestId": "ae9d1fd4-8090-467f-8dd9-5f0f17dfa498",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:29:11.349 [Info] Executed HTTP request: {
+  "requestId": "ae9d1fd4-8090-467f-8dd9-5f0f17dfa498",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:29:21.599 [Info] Executing HTTP request: {
+  "requestId": "c973a885-545e-4ff2-8c73-488e6cbdf291",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:29:21.599 [Info] Executed HTTP request: {
+  "requestId": "c973a885-545e-4ff2-8c73-488e6cbdf291",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:29:31.828 [Info] Executing HTTP request: {
+  "requestId": "e0293d19-dae6-4dfe-9458-076ead5b6919",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:29:31.828 [Info] Executed HTTP request: {
+  "requestId": "e0293d19-dae6-4dfe-9458-076ead5b6919",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:29:42.107 [Info] Executing HTTP request: {
+  "requestId": "ee184a14-5d89-4174-95f8-664d6c8b8bdc",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:29:42.107 [Info] Executed HTTP request: {
+  "requestId": "ee184a14-5d89-4174-95f8-664d6c8b8bdc",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:29:52.398 [Info] Executing HTTP request: {
+  "requestId": "f08ca920-90f4-4423-95f6-9da50624755b",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:29:52.398 [Info] Executed HTTP request: {
+  "requestId": "f08ca920-90f4-4423-95f6-9da50624755b",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:30:00.021 [Info,TimerTriggerCSharp1] Function started (Id=d230bdd6-ad25-4712-a858-8f3d76e523f7)
+2019-04-01T20:30:00.021 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T20:30:00.0211438+00:00', Id=d230bdd6-ad25-4712-a858-8f3d76e523f7)
+2019-04-01T20:30:00.521 [Info,TimerTriggerCSharp1] Function completed (Success, Id=d230bdd6-ad25-4712-a858-8f3d76e523f7, Duration=511ms)
+2019-04-01T20:30:00.536 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=d230bdd6-ad25-4712-a858-8f3d76e523f7)
+2019-04-01T20:30:02.786 [Info] Executing HTTP request: {
+  "requestId": "80ff098a-c60c-41bd-a710-01e8a79d4f61",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:30:02.786 [Info] Executed HTTP request: {
+  "requestId": "80ff098a-c60c-41bd-a710-01e8a79d4f61",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:33:30.396 [Info] Executing HTTP request: {
+  "requestId": "58371d4e-3fc4-41c6-930d-c547d34fe58b",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:33:30.396 [Info] Executed HTTP request: {
+  "requestId": "58371d4e-3fc4-41c6-930d-c547d34fe58b",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:33:40.693 [Info] Executing HTTP request: {
+  "requestId": "058356c1-36ec-459d-97f8-25682b00d118",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:33:40.693 [Info] Executed HTTP request: {
+  "requestId": "058356c1-36ec-459d-97f8-25682b00d118",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:33:50.872 [Info] Executing HTTP request: {
+  "requestId": "9486c70b-e839-4231-a555-dd0e41899608",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:33:50.872 [Info] Executed HTTP request: {
+  "requestId": "9486c70b-e839-4231-a555-dd0e41899608",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:34:01.114 [Info] Executing HTTP request: {
+  "requestId": "49b8a4bc-336a-4f31-be18-40ed0fba913f",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:34:01.114 [Info] Executed HTTP request: {
+  "requestId": "49b8a4bc-336a-4f31-be18-40ed0fba913f",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:34:11.343 [Info] Executing HTTP request: {
+  "requestId": "0de3e70b-5b3e-4e86-bee9-ab5e4f491152",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:34:11.343 [Info] Executed HTTP request: {
+  "requestId": "0de3e70b-5b3e-4e86-bee9-ab5e4f491152",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:34:21.635 [Info] Executing HTTP request: {
+  "requestId": "ef1eeb9e-09c3-432a-99b9-053ecaf17704",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:34:21.635 [Info] Executed HTTP request: {
+  "requestId": "ef1eeb9e-09c3-432a-99b9-053ecaf17704",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:34:31.859 [Info] Executing HTTP request: {
+  "requestId": "232999d7-e7f2-4481-9df7-8e92debf01e8",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:34:31.859 [Info] Executed HTTP request: {
+  "requestId": "232999d7-e7f2-4481-9df7-8e92debf01e8",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:34:42.075 [Info] Executing HTTP request: {
+  "requestId": "300dd1b3-cf6f-4f72-b6f5-f97cbe745641",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:34:42.075 [Info] Executed HTTP request: {
+  "requestId": "300dd1b3-cf6f-4f72-b6f5-f97cbe745641",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:34:52.339 [Info] Executing HTTP request: {
+  "requestId": "437ce86f-bc8d-455e-8e01-6cb9470b4303",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:34:52.339 [Info] Executed HTTP request: {
+  "requestId": "437ce86f-bc8d-455e-8e01-6cb9470b4303",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:35:00.022 [Info,TimerTriggerCSharp1] Function started (Id=aa18f182-f90a-471a-a2d7-ca1efb0d5b62)
+2019-04-01T20:35:00.022 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T20:35:00.0225966+00:00', Id=aa18f182-f90a-471a-a2d7-ca1efb0d5b62)
+2019-04-01T20:35:00.350 [Info,TimerTriggerCSharp1] Function completed (Success, Id=aa18f182-f90a-471a-a2d7-ca1efb0d5b62, Duration=341ms)
+2019-04-01T20:35:00.366 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=aa18f182-f90a-471a-a2d7-ca1efb0d5b62)
+2019-04-01T20:35:02.539 [Info] Executing HTTP request: {
+  "requestId": "407019a6-3d3b-4e2a-bb58-04b5e1121cb2",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:35:02.539 [Info] Executed HTTP request: {
+  "requestId": "407019a6-3d3b-4e2a-bb58-04b5e1121cb2",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:38:30.162 [Info] Executing HTTP request: {
+  "requestId": "c116e3d7-b773-40dc-ac3e-ff4cd253278f",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:38:30.162 [Info] Executed HTTP request: {
+  "requestId": "c116e3d7-b773-40dc-ac3e-ff4cd253278f",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:38:40.386 [Info] Executing HTTP request: {
+  "requestId": "13e9a5da-cbbc-4945-82f0-e794f918fc58",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:38:40.402 [Info] Executed HTTP request: {
+  "requestId": "13e9a5da-cbbc-4945-82f0-e794f918fc58",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:38:50.650 [Info] Executing HTTP request: {
+  "requestId": "d3fe4e27-89e8-4eb2-a16b-269268980dad",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:38:50.650 [Info] Executed HTTP request: {
+  "requestId": "d3fe4e27-89e8-4eb2-a16b-269268980dad",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:39:00.899 [Info] Executing HTTP request: {
+  "requestId": "6dc66b73-1ea2-406c-9a94-6f88dce805a3",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:39:00.899 [Info] Executed HTTP request: {
+  "requestId": "6dc66b73-1ea2-406c-9a94-6f88dce805a3",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:39:11.142 [Info] Executing HTTP request: {
+  "requestId": "c8f87ed5-afe5-462e-869a-d783eb7b2a86",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:39:11.142 [Info] Executed HTTP request: {
+  "requestId": "c8f87ed5-afe5-462e-869a-d783eb7b2a86",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:39:21.385 [Info] Executing HTTP request: {
+  "requestId": "8f45e0a4-63b0-4e3b-9f03-08d80cbe4688",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:39:21.385 [Info] Executed HTTP request: {
+  "requestId": "8f45e0a4-63b0-4e3b-9f03-08d80cbe4688",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:39:31.665 [Info] Executing HTTP request: {
+  "requestId": "fefc7651-bad1-443d-9265-1490b7f2df94",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:39:31.665 [Info] Executed HTTP request: {
+  "requestId": "fefc7651-bad1-443d-9265-1490b7f2df94",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:39:41.927 [Info] Executing HTTP request: {
+  "requestId": "97fdc56b-77ad-4291-ae37-f83f80d3cb9c",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:39:41.927 [Info] Executed HTTP request: {
+  "requestId": "97fdc56b-77ad-4291-ae37-f83f80d3cb9c",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:39:52.156 [Info] Executing HTTP request: {
+  "requestId": "6d96ae4f-48e1-4245-a01d-68a173beddbd",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:39:52.156 [Info] Executed HTTP request: {
+  "requestId": "6d96ae4f-48e1-4245-a01d-68a173beddbd",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}
+2019-04-01T20:40:00.011 [Info,TimerTriggerCSharp1] Function started (Id=ce8b18c4-0b20-48c5-aa45-ee5c3f98661c)
+2019-04-01T20:40:00.011 [Info,TimerTriggerCSharp1] Executing 'Functions.TimerTriggerCSharp1' (Reason='Timer fired at 2019-04-01T20:40:00.0113654+00:00', Id=ce8b18c4-0b20-48c5-aa45-ee5c3f98661c)
+2019-04-01T20:40:00.323 [Info,TimerTriggerCSharp1] Function completed (Success, Id=ce8b18c4-0b20-48c5-aa45-ee5c3f98661c, Duration=319ms)
+2019-04-01T20:40:00.323 [Info,TimerTriggerCSharp1] Executed 'Functions.TimerTriggerCSharp1' (Succeeded, Id=ce8b18c4-0b20-48c5-aa45-ee5c3f98661c)
+2019-04-01T20:40:02.449 [Info] Executing HTTP request: {
+  "requestId": "af5200f5-6ac7-4536-bf87-f63c9ffad32e",
+  "method": "GET",
+  "uri": "/admin/host/ping"
+}
+2019-04-01T20:40:02.449 [Info] Executed HTTP request: {
+  "requestId": "af5200f5-6ac7-4536-bf87-f63c9ffad32e",
+  "method": "GET",
+  "uri": "/admin/host/ping",
+  "authorizationLevel": "Anonymous",
+  "status": "OK"
+}

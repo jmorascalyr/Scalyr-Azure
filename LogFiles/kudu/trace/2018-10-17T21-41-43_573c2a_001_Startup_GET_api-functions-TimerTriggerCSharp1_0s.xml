@@ -1,0 +1,3 @@
+<step title="Startup Request" date="2018-10-17T21:41:43.646" instance="573c2a" url="/api/functions/TimerTriggerCSharp1" method="GET" type="request" pid="3316,2,7" SCM_SKIP_SSL_VALIDATION="0" ScmType="None" >
+  <step title="Cleanup Xml Logs" date="2018-10-17T21:41:43.833" /><!-- duration: 78ms -->
+</step><!-- duration: 297ms -->
