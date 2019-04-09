@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 //set App level const variable
 private const string URL = "https://api.applicationinsights.io/v1/apps/{0}/{1}?{2}";
 private const string APPID = "98afd2e0-55c5-4161-a906-d520a9fd5884";
-private const string APIKEY = "dm8ox3bx5tvpbh4zhgjstc1lmbzetus2livrih6s";
+private const string APIKEY = "api-key";
 private const string QUERYTYPE = "query";
 //set all logs table
 private const string traces  = "(traces | where timestamp >= datetime({0}) and timestamp < datetime({1}))";
@@ -148,8 +148,8 @@ public static void post(string data)
     // Create a request using a URL that can receive a post. 
 
    // WebRequest request = WebRequest.Create("https://hooks.zapier.com/hooks/catch/1710212/lv0l52/");
-    WebRequest request = WebRequest.Create("https://www.scalyr.com/api/uploadLogs?token=0P67u1yoYqTsMF0gchc9braNxSHfWCgc0wM5ffhWZYT0-");
-    //WebRequest request = WebRequest.Create("https://www.scalyr.com/api/uploadLogs?token=02xraYX3J8qI3wR0VlHpsHtzoeFR7IAhqvRDCpHURLfk-");
+    WebRequest request = WebRequest.Create("https://www.scalyr.com/api/uploadLogs?token=api-key");
+    //WebRequest request = WebRequest.Create("https://www.scalyr.com/api/uploadLogs?token=api-key");
     // Set the Method property of the request to POST.
     request.Method = "POST";
     // Create POST data and convert it to a byte array.
